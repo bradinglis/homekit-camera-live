@@ -200,7 +200,9 @@ class Cameras:
                 # from the go2rtc that was running then.
                 await camera.stream.stop()
                 camera.stream = None
-            camera._invalidate_camera_capabilities_cache()
+            # HA 2026.11 removed _invalidate_camera_capabilities_cache:
+            # camera_capabilities is now a plain property, and async_write_ha_state
+            # handles the supported-features change below.
             await camera.async_refresh_providers(write_state=False)
             # The STREAM feature is in the state, and the provider may not
             # have changed (HLS only, without Home Assistant's go2rtc).
