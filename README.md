@@ -1,5 +1,9 @@
 # HomeKit Camera Live
 
+> **Fork note:** the `ha-2026-11` branch fixes HA 2026.11 compatibility by
+> removing the call to `_invalidate_camera_capabilities_cache`, which was
+> removed from Home Assistant's camera entity in that release.
+
 Live video for the cameras you've paired with Home Assistant's
 [HomeKit Controller](https://www.home-assistant.io/integrations/homekit_controller/)
 integration.
